@@ -1,0 +1,9 @@
+{
+	"linters": {
+		"phpcs": {
+			"type": "phpcs",
+			"include": "(^src/.*\\.php$)",
+			"phpcs.standard": "PSR2"
+		}
+	}
+}
