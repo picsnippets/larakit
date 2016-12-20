@@ -5,6 +5,7 @@ namespace Buckii\Larakit\Database;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
+use DB;
 
 abstract class IdempotentDatabaseSeeder extends Seeder
 {
