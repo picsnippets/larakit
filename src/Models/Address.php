@@ -1,6 +1,6 @@
 <?php
 
-namespace Buckii\Larakit;
+namespace Buckii\Larakit\Models;
 
 class Address extends Model
 {

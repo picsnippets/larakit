@@ -9,6 +9,6 @@ class LarakitProvider extends ServiceProvider
     public function boot()
     {
         // Register LaravelFormBuilder
-        App::register('Kris\LaravelFormBuilder\FormBuilderServiceProvider');
+        $this->app->register('Kris\LaravelFormBuilder\FormBuilderServiceProvider');
     }
 }
