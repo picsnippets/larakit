@@ -4,7 +4,7 @@ namespace Buckii\Larakit;
 
 use Illuminate\Support\ServiceProvider;
 
-class LarakitServiceProvider extends ServiceProvider
+class LarakitProvider extends ServiceProvider
 {
     public function boot()
     {
