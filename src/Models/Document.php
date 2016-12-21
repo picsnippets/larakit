@@ -2,7 +2,6 @@
 
 namespace Buckii\Larakit\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Ramsey\Uuid\Uuid;
 use Storage;
 use Symfony\Component\HttpFoundation\File\File;
