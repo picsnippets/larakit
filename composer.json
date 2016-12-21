@@ -1,21 +1,27 @@
 {
-    "name": "buckii/larakit",
-    "description": "A set of Laravel components that are useful across projects.",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Buckeye Interactive",
-            "email": "dev@buckeyeinteractive.com"
-        }
-    ],
-    "require": {
+	"name": "buckii/larakit",
+	"description": "A set of Laravel components that are useful across projects.",
+	"type": "library",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Buckeye Interactive",
+			"email": "dev@buckeyeinteractive.com"
+		}
+	],
+	"require": {
 		"php": "^5.4.0 || ^7.0",
-        "ramsey/uuid": "^3.5"
-    },
-    "autoload": {
+		"ramsey/uuid": "^3.5",
+		"kris/laravel-form-builder": "^1.10",
+		"illuminate/support": "^5.3"
+	},
+	"autoload": {
 		"psr-4": {
 			"Buckii\\Larakit\\": "src/"
 		}
-    }
+	},
+	"require-dev": {
+		"orchestra/testbench": "~3.0",
+		"phpunit/phpunit": "^5.7"
+	}
 }
