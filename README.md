@@ -25,6 +25,22 @@ There are no "stable" releases yet, so you'll have to track `dev-master`.
 Might even make a [Satis](https://github.com/composer/satis) repo for it
 eventually.
 
+## Testing
+
+There is some limited automated testing included.  Several of the tests require
+a PostgreSQL database in order to run.  A composer command to start and stop a
+configured docker container is included, make sure you have docker installed in
+order to use it.  The process for running tests looks like this:
+
+```
+composer install
+composer start-db
+composer test
+composer stop-db
+```
+
+More comprehensive automated testing of the various components is in progress.
+
 ## Components
 
 ### Address
@@ -49,7 +65,7 @@ documentation for usage and more details.
 
 ## TODOs
 
-* Testing, this is a big one.
+* Testing, this is a big one. (In progress)
 * Integrate Laravel Form Builder.
 * Method to install each optional component individually.  Maybe register some
   artisan commands like `larakit:install --component=documents`.  This would
