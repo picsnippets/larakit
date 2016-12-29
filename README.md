@@ -2,20 +2,23 @@
 
 A set of useful components for Laravel that can be shared across projects.
 
+Currently requires the use of PostgreSQL for several of the components.  Will
+probably add MySQL support and maybe others in the future.
+
 ## Install
 
 You can add this to a project by using a custom repository in your `composer.json`:
 
 ```
 "repositories": [
-    {
-        "type": "vcs",
-        "url": "https://projects.buckii.com/source/buckii-larakit.git"
-    }
+	{
+		"type": "vcs",
+		"url": "https://projects.buckii.com/source/buckii-larakit.git"
+	}
 ]
 ```
 
-And then adding `"buckii/larakit": "dev-master"` to the `require` section.  Files
+And then adding `"buckii/larakit": "dev-master"` to the `require` section.	Files
 are PSR-4 loaded into the `\Buckii\Larakit` namespace.
 
 Next you'll want to add `\Buckii\Larakit\LarakitProvider::class` to your app's
@@ -28,7 +31,7 @@ eventually.
 ## Testing
 
 There is some limited automated testing included.  Several of the tests require
-a PostgreSQL database in order to run.  A composer command to start and stop a
+a PostgreSQL database in order to run.	A composer command to start and stop a
 configured docker container is included, make sure you have docker installed in
 order to use it.  The process for running tests looks like this:
 
@@ -58,6 +61,13 @@ can use `migrations/create_documents_table.php` as a guide.
 Then simply add a model to your app that extends the
 `Buckii\Larakit\Models\Document` class.
 
+### Error
+
+Simple way to add error reporting to the database.	Create an `errors` table
+using the migration provided as a base, then make sure your
+`Exceptions\Handler` class extends `Buckii\Larakit\Exceptions\Handler` instead
+of the default.
+
 ### Idempotent Database Seeder
 
 Allows for idempotent database seeds.  See the class
@@ -67,7 +77,10 @@ documentation for usage and more details.
 
 * Testing, this is a big one. (In progress)
 * Integrate Laravel Form Builder.
-* Method to install each optional component individually.  Maybe register some
-  artisan commands like `larakit:install --component=documents`.  This would
-  then add the migrations for the user and maybe even drop in a Document model.
+	* Partially complete, need to add additional custom field types.
+* Method to install each optional component individually.
+	* Maybe register some artisan commands like `larakit:install --component=documents`.
 * Generic CRUD controller for simple models/scaffolding.
+	* This will probably end up being a collection of components such as `StoreResourceRequest` and `UpdateResourceRequest`.
+* Front end integration
+	* Probably based on an additional NPM dependency.

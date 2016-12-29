@@ -5,6 +5,7 @@ namespace Buckii\LarakitTests\Models;
 use Buckii\LarakitTests\LarakitTestCase;
 use Buckii\Larakit\Models\Document;
 use Kris\LaravelFormBuilder\Form;
+use Ramsey\Uuid\Uuid;
 
 class DocumentTest extends LarakitTestCase
 {
@@ -13,12 +14,15 @@ class DocumentTest extends LarakitTestCase
         parent::setUp();
 
         $this->model = new Document([
-            'line_one' => '123 Main Street',
-            'line_two' => '',
-            'line_three' => '',
-            'city' => 'Columbus',
-            'state' => 'OH',
-            'zip_code' => '43210',
+            'display_name' => Uuid::uuid4()->toString(),
+            'stored_name' => Uuid::uuid4()->toString(),
+            'mime_type' => 'text/plain',
+            'extension' => 'txt',
         ]);
+    }
+
+    public function testSave()
+    {
+        $this->assertTrue($this->model->save());
     }
 }
