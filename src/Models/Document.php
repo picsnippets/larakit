@@ -6,6 +6,7 @@ use Ramsey\Uuid\Uuid;
 use Storage;
 use Symfony\Component\HttpFoundation\File\File;
 use Response;
+use Illuminate\Http\UploadedFile;
 
 class Document extends Model
 {
@@ -49,7 +50,7 @@ class Document extends Model
         }
 
         $document = new Document([
-            'display_name' => $display_name,
+            'display_name' => self::normalizeName($display_name),
             'stored_name' => $stored_name,
             'mime_type' => $mime_type,
             'extension' => $extension,
@@ -123,6 +124,14 @@ class Document extends Model
                 'Content-Disposition' => 'attachment; filename=' . $this->getFullDisplayName(),
                 'Content-Type' => $this->mime_type,
             ]
+        );
+    }
+
+    public static function storeUploadedFile(UploadedFile $file)
+    {
+        return self::store(
+            $file->getClientOriginalName(),
+            $file
         );
     }
 }
