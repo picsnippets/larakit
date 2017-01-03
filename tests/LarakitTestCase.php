@@ -13,6 +13,8 @@ abstract class LarakitTestCase extends TestCase
         $this->app->make('Illuminate\Contracts\Http\Kernel')
             ->pushMiddleware('Illuminate\Session\Middleware\StartSession');
 
+        $this->app['request']->setSession($this->app['session.store']);
+
         $this->loadMigrationsFrom([
             '--database' => 'testing',
             '--realpath' => realpath(__DIR__.'/../migrations'),
