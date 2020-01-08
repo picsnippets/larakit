@@ -62,3 +62,5 @@ node_modules
 bower_modules
 
 /vendor/
+
+.idea
